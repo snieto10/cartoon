@@ -7,6 +7,8 @@
   --color-green: #42b72a;
   --color-blue: #1877f2;
   --color-gray: #f0f2f5;
+  --color-dgreen: #2a7c19;
+  --border-radius: 10px;
 }
 
 html {
@@ -19,6 +21,10 @@ html {
   box-sizing: border-box;
 }
 
+body {
+  background: var(--color-gray);
+}
+
 /* Rating Bar */
 
 .wrapper {
@@ -29,6 +35,8 @@ html {
   border: 1px solid gray;
   max-width: 603px;
   margin: 0 auto;
+  background-color: var(--color-gray);
+  border-radius: 10px;
 }
 
 .option {
@@ -78,4 +86,81 @@ html {
 
 .option input {
   display: none;
+}
+
+/* INPUT */
+
+.box-input {
+  max-width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto 1rem auto;
+}
+
+.input {
+  width: 60%;
+  height: 40px;
+  font-size: 1.6rem;
+  outline: none;
+  padding-left: 1rem;
+  border-radius: 10px;
+  background: var(--color-gray);
+}
+
+/* Button */
+
+.btn {
+  border: 0;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  background: var(--color-green);
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--color-dgreen);
+}
+
+/* Blocks */
+
+.block-main {
+  border: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: var(--color-blue);
+  margin-bottom: 2rem;
+}
+
+.block-feedback {
+  border: none;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem auto;
+  border-radius: var(--border-radius);
+  background-color: var(--color-blue);
+  height: 50px;
+  font-size: 1.6rem;
+  color: white;
+  position: relative;
+}
+
+.block-feedbackNumber {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  background-color: var(--color-green);
+  top: -10px;
+  left: -20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
 }
