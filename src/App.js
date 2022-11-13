@@ -7,12 +7,20 @@ import { useState } from "react";
 
 function App() {
   const [feedback, setFeedback] = useState(feedbackData);
+
+  const addFeedback = (newF) => {
+    setFeedback([newF, ...feedback]);
+  };
+
+  const handleDelete = (item) => {
+    console.log(feedback);
+  };
   return (
     <>
-      <SubmitForm />
+      <SubmitForm newFeedback={addFeedback} />
 
       {feedback.map((f) => (
-        <Feedback key={f.id} feedback={f} />
+        <Feedback key={f.id} feedback={f} handleDelete={handleDelete} />
       ))}
     </>
   );

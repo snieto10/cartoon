@@ -2,8 +2,8 @@ import React from "react";
 import RatingBar from "./RatingBar";
 import { useState } from "react";
 
-function SubmitForm() {
-  const [text, setText] = useState();
+function SubmitForm({ newFeedback }) {
+  const [text, setText] = useState("");
   const [rating, setRating] = useState(10);
 
   const handleTextChange = (e) => {
@@ -13,7 +13,13 @@ function SubmitForm() {
   const handleSubmit = (e) => {
     e.preventDefault(e.target.value);
 
-    console.log(text, rating);
+    const obj = {
+      text,
+      rating,
+      id: Math.random() * 1000,
+    };
+
+    newFeedback(obj);
   };
 
   const handleRating = (e) => {
