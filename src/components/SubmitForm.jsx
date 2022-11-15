@@ -1,12 +1,21 @@
 import React from "react";
 import RatingBar from "./RatingBar";
+import Button from "./shared/Button";
 import { useState } from "react";
 
 function SubmitForm({ newFeedback }) {
   const [text, setText] = useState("");
+  const [btnDisabled, setBtnDisabled] = useState(false);
+  const [message, setMessage] = useState("");
   const [rating, setRating] = useState(10);
 
   const handleTextChange = (e) => {
+    if (text === "") setBtnDisabled(true);
+    if (text.length <= 5) setMessage("Feed must have at least 6 characters");
+    if (text.length > 6) {
+      setBtnDisabled(false);
+      setMessage("");
+    }
     setText(e.target.value);
   };
 
@@ -20,6 +29,8 @@ function SubmitForm({ newFeedback }) {
     };
 
     newFeedback(obj);
+
+    setText("");
   };
 
   const handleRating = (e) => {
@@ -30,7 +41,7 @@ function SubmitForm({ newFeedback }) {
     <>
       <form onSubmit={handleSubmit}>
         <div className="block-main">
-          <RatingBar handleRating={handleRating} />
+          <RatingBar handleRating={handleRating} rating={rating} />
           <div className="box-input">
             <input
               onChange={handleTextChange}
@@ -39,10 +50,11 @@ function SubmitForm({ newFeedback }) {
               placeholder="Write a review"
               value={text}
             />
-            <button type="submit" className="btn">
-              SUBMIT
-            </button>
+            <Button type="submit" isDisabled={btnDisabled}>
+              SEND
+            </Button>
           </div>
+          {message && <div className="message">{message}</div>}
         </div>
       </form>
     </>

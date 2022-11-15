@@ -1,6 +1,6 @@
 import React from "react";
 
-function RatingBar({ handleRating }) {
+function RatingBar({ handleRating, rating }) {
   return (
     <>
       <div className="wrapper">
@@ -101,6 +101,7 @@ function RatingBar({ handleRating }) {
             name="rating"
             onChange={handleRating}
             value="10"
+            checked={rating === 10}
           />
           <label htmlFor="num10">10</label>
         </div>

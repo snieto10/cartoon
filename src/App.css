@@ -25,6 +25,14 @@ body {
   background: var(--color-gray);
 }
 
+/* Message */
+
+.message {
+  text-align: center;
+  font-size: 1.4rem;
+  color: white;
+}
+
 /* Rating Bar */
 
 .wrapper {
@@ -126,6 +134,11 @@ body {
   background-color: var(--color-dgreen);
 }
 
+.btn:disabled {
+  background: gray;
+  cursor: default;
+}
+
 /* Blocks */
 
 .block-main {
@@ -163,4 +176,12 @@ body {
   justify-content: center;
   align-items: center;
   font-weight: bold;
+}
+
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+  list-style: none;
+  padding: 1rem 1rem;
 }
