@@ -9,6 +9,8 @@ import { useState } from "react";
 import Help from "./pages/Help";
 import Learn from "./pages/Learn";
 import Practice from "./pages/Practice";
+import { FeedbackProvider } from "./context/FeedbackContext";
+import { SergioProvider } from "./context/SergioContext";
 
 function App() {
   const [feedback, setFeedback] = useState(feedbackData);
@@ -22,31 +24,35 @@ function App() {
   };
   return (
     <>
-      <Router>
-        <Header />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <>
-                <SubmitForm newFeedback={addFeedback} />
+      <FeedbackProvider>
+        <SergioProvider>
+          <Router>
+            <Header />
+            <Routes>
+              <Route
+                exact
+                path="/"
+                element={
+                  <>
+                    <SubmitForm newFeedback={addFeedback} />
 
-                {feedback.map((f) => (
-                  <Feedback
-                    key={f.id}
-                    feedback={f}
-                    handleDelete={handleDelete}
-                  />
-                ))}
-              </>
-            }
-          ></Route>
-          <Route path="/learn" element={<Learn />} />
-          <Route path="/practice" element={<Practice />} />
-          <Route path="/help" element={<Help />} />
-        </Routes>
-      </Router>
+                    {feedback.map((f) => (
+                      <Feedback
+                        key={f.id}
+                        feedback={f}
+                        handleDelete={handleDelete}
+                      />
+                    ))}
+                  </>
+                }
+              ></Route>
+              <Route path="/learn" element={<Learn />} />
+              <Route path="/practice" element={<Practice />} />
+              <Route path="/help" element={<Help />} />
+            </Routes>
+          </Router>
+        </SergioProvider>
+      </FeedbackProvider>
     </>
   );
 }
