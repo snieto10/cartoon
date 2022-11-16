@@ -1,9 +1,12 @@
 import React from "react";
 import Card from "./shared/Card";
+import { useContext, useState } from "react";
+import FeedbackContext from "../context/FeedbackContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
-function Feedback({ feedback, handleDelete }) {
+function Feedback({ feedback }) {
+  const { handleDelete } = useContext(FeedbackContext);
   return (
     <>
       <Card>

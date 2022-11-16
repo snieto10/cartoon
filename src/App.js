@@ -11,17 +11,11 @@ import Learn from "./pages/Learn";
 import Practice from "./pages/Practice";
 import { FeedbackProvider } from "./context/FeedbackContext";
 import { SergioProvider } from "./context/SergioContext";
+import FeedbackList from "./components/FeedbackList";
 
 function App() {
   const [feedback, setFeedback] = useState(feedbackData);
 
-  const addFeedback = (newF) => {
-    setFeedback([newF, ...feedback]);
-  };
-
-  const handleDelete = (id) => {
-    setFeedback(feedback.filter((item) => item.id !== id));
-  };
   return (
     <>
       <FeedbackProvider>
@@ -34,15 +28,9 @@ function App() {
                 path="/"
                 element={
                   <>
-                    <SubmitForm newFeedback={addFeedback} />
+                    <SubmitForm />
 
-                    {feedback.map((f) => (
-                      <Feedback
-                        key={f.id}
-                        feedback={f}
-                        handleDelete={handleDelete}
-                      />
-                    ))}
+                    <FeedbackList />
                   </>
                 }
               ></Route>

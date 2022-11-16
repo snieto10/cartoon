@@ -1,9 +1,13 @@
 import React from "react";
+import { useContext } from "react";
+import FeedbackContext from "../context/FeedbackContext";
 import RatingBar from "./RatingBar";
 import Button from "./shared/Button";
 import { useState } from "react";
 
 function SubmitForm({ newFeedback }) {
+  const { addFeedback } = useContext(FeedbackContext);
+
   const [text, setText] = useState("");
   const [btnDisabled, setBtnDisabled] = useState(false);
   const [message, setMessage] = useState("");
@@ -28,7 +32,7 @@ function SubmitForm({ newFeedback }) {
       id: Math.random() * 1000,
     };
 
-    newFeedback(obj);
+    addFeedback(obj);
 
     setText("");
   };
