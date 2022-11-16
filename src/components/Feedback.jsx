@@ -6,12 +6,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 function Feedback({ feedback }) {
-  const { handleDelete } = useContext(FeedbackContext);
+  const { handleDelete, editFeedback } = useContext(FeedbackContext);
   return (
     <>
       <Card>
         <div className="block-feedbackNumber">{feedback.rating}</div>
-        {feedback.text} <span onClick={() => handleDelete(feedback.id)}>X</span>
+        {feedback.text} <span onClick={() => editFeedback(feedback)}>O</span>
+        <span onClick={() => handleDelete(feedback.id)}>X</span>
       </Card>
     </>
   );

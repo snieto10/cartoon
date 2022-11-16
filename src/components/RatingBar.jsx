@@ -11,6 +11,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="1"
+            checked={rating === 1}
           />
           <label htmlFor="num1">1</label>
         </div>
@@ -21,6 +22,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="2"
+            checked={rating === 2}
           />
           <label htmlFor="num2">2</label>
         </div>
@@ -31,6 +33,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="3"
+            checked={rating === 3}
           />
           <label htmlFor="num3">3</label>
         </div>
@@ -41,6 +44,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="4"
+            checked={rating === 4}
           />
           <label htmlFor="num4">4</label>
         </div>
@@ -51,6 +55,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="5"
+            checked={rating === 5}
           />
           <label htmlFor="num5">5</label>
         </div>
@@ -61,6 +66,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="6"
+            checked={rating === 6}
           />
           <label htmlFor="num6">6</label>
         </div>
@@ -71,6 +77,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="7"
+            checked={rating === 7}
           />
           <label htmlFor="num7">7</label>
         </div>
@@ -81,6 +88,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="8"
+            checked={rating === 8}
           />
           <label htmlFor="num8">8</label>
         </div>
@@ -91,6 +99,7 @@ function RatingBar({ handleRating, rating }) {
             name="rating"
             onChange={handleRating}
             value="9"
+            checked={rating === 9}
           />
           <label htmlFor="num9">9</label>
         </div>
