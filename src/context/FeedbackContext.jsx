@@ -26,7 +26,9 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   //Delete Feedback
-  const handleDelete = (id) => {
+  const handleDelete = async (id) => {
+    await fetch(`http://localhost:5000/feedback/${id}`, { method: "DELETE" });
+
     setFeedback(feedback.filter((item) => item.id !== id));
   };
   // Add feedback
@@ -53,11 +55,21 @@ export const FeedbackProvider = ({ children }) => {
   };
 
   // Update feedback item
-  const updateFeedback = (id, updItem) => {
+  const updateFeedback = async (id, updItem) => {
+    const response = await fetch(`http://localhost:5000/feedback/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updItem),
+    });
+
+    const data = await response.json();
+
     setFeedback(
       feedback.map((item) =>
         item.id == id
-          ? { id, text: updItem.text, rating: updItem.rating }
+          ? { id: data.id, text: data.text, rating: data.rating }
           : item
       )
     );
